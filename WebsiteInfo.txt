@@ -1,0 +1,74 @@
+// *TEXT* Means Highlighted Text
+
+Contact Info
+Email: rubenbotha04@gmail.com
+GitHub: https://github.com/Ruben46290
+Itch.io https://rubenb2004.itch.io/
+LinkedIn: https://www.linkedin.com/in/ruben-botha2004/
+
+Featured Game 1
+Peel the Pressure
+
+Featured Game 2
+Blight Hearth
+
+
+
+
+Game Information
+
+Title: Peel the Pressure
+Description Short: A fast-paced co-op multiplayer game built in Unreal Engine 5 featuring real-time online play via Epic Online Services
+
+// Show These 3 Tags In The Main Menu Game Selection
+Tags: Unreal Engine, C++, Multiplayer
+
+// Show These Tags When Clicked
+Tag: Unreal Engine, C++, Blueprints, 2 Player Co-op, Epic Online Services
+
+// Gameplay Information / Backstory
+Description 2: After a year long fight with the skeletons ended with a peace treaty, all the mightiest warriors have to settle down on the farm and serve the skeletons. Play Co-op or single player and fulfill all the skeletons orders in all 5 levels to become the ultimate warrior farmer.
+
+Screenshots
+peelthepressure/screenshots/example.png
+
+Features
+Online Multiplayer - Real-time 2 player co-op via Epic Online Services with a lobby browser
+Time Pressure - Race against the clock to fulfill customer orders before time runs out
+Customizable Controls - Full key bind remapping with mouse sensitivity options 
+Single player Mode - Play solo in a dedicated single player mode where you have more time to fulfill orders
+
+// Technical Information
+Developed using *Unreal Engine 5* mainly using C++ with some blueprints. Online play is powered by *Epic Online Services (EOS) for cross-network session discovery and P2P connections. This project features real-time replication and functional server searching & joining.
+
+// What I Learnt From This Project etc.
+Yapping: This was the first multiplayer project that I worked on // Ill do later
+
+
+
+
+Title: Blight Hearth
+Description Short: Defend the castle from a massive attack of goblins
+
+// Show These 3 Tags In The Main Menu Game Selection
+Tags: Unreal Engine, Blueprints, AIE Group Project
+
+// Show These Tags When Clicked
+Tag: Unreal Engine, Blueprints, Tower-Defense 
+
+// Gameplay Information / Backstory
+Description 2: You are the last line of defense for the castle, defend from 50 waves of goblins using upgradable weapons and placing towers that are bought from the slime merchant. Beat all 3 maps to defeat those goblins once and for all! Made as the final project for the AIE game programming course.
+
+Screenshots
+blighthearth/screenshots/example.png
+
+Features
+Tower Defence - Place 6 types of towers around the map to automatically fight off the goblins.
+Weapons - 6 different types of weapons, choose and upgrade your favorite one!
+Save System - Save your progress between play sessions. 
+
+// Technical Information
+Developed using *Unreal Engine 5* mainly using blueprint with some C++, my role in the group was to focus on enemy spawning, enemy pathing & attacking, all 6 weapons, all 6 tower functionality. 
+
+// What I Learnt From This Project etc.
+Yapping: This was the first multiplayer project that I worked on // Ill do later

@@ -9,146 +9,95 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0d0d0d;
+            background: #0e0e12;
             color: #e0e0e0;
         }
 
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
-            background: rgba(13,13,13,0.95);
+            background: rgba(14,14,18,0.97);
             backdrop-filter: blur(10px);
-            padding: 18px 60px;
+            padding: 16px 48px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 100;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid #1e1e26;
+        }
+        nav .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+        nav .nav-links a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 28px;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        nav .nav-links a:hover { color: #fff; }
+
+        /* HERO */
+        .hero {
+            padding: 140px 48px 60px;
+            text-align: center;
+            background: radial-gradient(ellipse at center, #1a1a2e 0%, #0e0e12 70%);
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .hero .short-desc {
+            font-size: 0.95rem;
+            color: #777;
+            max-width: 500px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        .tag {
+            padding: 5px 14px;
+            background: #1e1e2a;
+            border-radius: 3px;
+            font-size: 0.78rem;
+            color: #999;
         }
 
-        nav .logo {
+        /* CONTENT */
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 48px 80px;
+        }
+
+        .block {
+            margin-top: 70px;
+        }
+
+        .block-title {
             font-size: 1.4rem;
             font-weight: 700;
             color: #fff;
-            letter-spacing: 1px;
-            text-decoration: none;
+            margin-bottom: 20px;
         }
 
-        nav .logo span { color: #e05c00; }
-
-        nav a {
-            color: #aaa;
-            text-decoration: none;
-            margin-left: 32px;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        nav a:hover { color: #fff; }
-
-        .hero {
-            min-height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 120px 20px 60px;
-            background: radial-gradient(ellipse at center, #1a1a2e 0%, #0d0d0d 70%);
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 16px;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: #888;
-            max-width: 600px;
-            line-height: 1.7;
-        }
-
-        .tags {
-            display: flex;
-            gap: 10px;
-            margin-top: 24px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .tag {
-            padding: 6px 14px;
-            background: #222;
-            border-radius: 3px;
-            font-size: 0.8rem;
-            color: #aaa;
-        }
-
-        .section {
-            padding: 80px 60px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 3px;
-            background: #e05c00;
-            margin-top: 10px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-        }
-
-        .feature {
-            background: #161616;
-            border: 1px solid #222;
+        /* VIDEO */
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #161620;
+            border: 1px solid #1e1e2a;
             border-radius: 8px;
-            padding: 24px;
-        }
-
-        .feature-icon { font-size: 2rem; margin-bottom: 12px; }
-
-        .feature h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-
-        .feature p {
-            font-size: 0.85rem;
-            color: #777;
-            line-height: 1.6;
-        }
-
-        .screenshots {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .screenshot-placeholder {
-            background: #161616;
-            border: 1px solid #222;
-            border-radius: 8px;
-            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -156,99 +105,243 @@
             font-size: 0.9rem;
         }
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 0;
-            color: #e05c00;
-            text-decoration: none;
-            font-size: 0.9rem;
+        /* DESCRIPTION */
+        .description {
+            color: #888;
+            line-height: 1.8;
+            font-size: 0.95rem;
         }
 
-        .back-link:hover { text-decoration: underline; }
+        /* SCREENSHOTS CAROUSEL */
+        .carousel-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .carousel {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            flex: 1;
+        }
+        .screenshot {
+            aspect-ratio: 16/9;
+            background: #161620;
+            border: 1px solid #1e1e2a;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #444;
+            font-size: 0.8rem;
+            overflow: hidden;
+        }
+        .screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .carousel-btn {
+            background: #1e1e2a;
+            border: none;
+            color: #ccc;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            flex-shrink: 0;
+            transition: background 0.2s;
+        }
+        .carousel-btn:hover { background: #2a2a3a; }
+
+        /* FEATURES */
+        .features-container {
+            background: #111118;
+            border: 1px solid #1e1e2a;
+            border-radius: 10px;
+            padding: 36px;
+        }
+        .features-container .block-title {
+            margin-bottom: 24px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        .feature {
+            background: #16161e;
+            border: 1px solid #1e1e2a;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .feature-icon { font-size: 1.8rem; margin-bottom: 10px; }
+        .feature h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .feature p {
+            font-size: 0.78rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* DOWNLOAD */
+        .download-btn {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background: #00c97a;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .download-btn:hover { background: #00e88a; transform: translateY(-2px); }
+        .download-unavailable {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background: #1e1e2a;
+            color: #555;
+            text-align: center;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: not-allowed;
+        }
+
+        /* BUILT WITH & YAPPING */
+        .text-block {
+            color: #888;
+            line-height: 1.8;
+            font-size: 0.92rem;
+        }
+        .text-block strong { color: #e05c00; }
 
         footer {
             text-align: center;
-            padding: 40px;
-            border-top: 1px solid #1a1a1a;
+            padding: 36px;
+            border-top: 1px solid #1a1a22;
             color: #444;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
-
         footer a { color: #555; text-decoration: none; }
         footer a:hover { color: #888; }
 
         @media (max-width: 768px) {
-            nav { padding: 18px 24px; }
-            .hero h1 { font-size: 2rem; }
-            .section { padding: 60px 24px; }
+            nav { padding: 16px 24px; }
+            .hero { padding: 120px 24px 50px; }
+            .content { padding: 0 24px 60px; }
+            .carousel { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="/" class="logo">Ruben<span>B</span> Games</a>
-    <div>
+    <a href="/" class="logo">RubenB Games</a>
+    <div class="nav-links">
         <a href="/#games">Games</a>
         <a href="/#about">About</a>
         <a href="/#contact">Contact</a>
     </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
     <h1>Peel the Pressure</h1>
-    <p>A chaotic co-op juicing game where you and a friend race against the clock to fulfill customer orders before their patience runs out.</p>
+    <p class="short-desc">A fast-paced co-op multiplayer game built in Unreal Engine 5 featuring real-time online play via Epic Online Services.</p>
     <div class="tags">
         <span class="tag">Unreal Engine 5</span>
         <span class="tag">C++</span>
         <span class="tag">Blueprints</span>
-        <span class="tag">Epic Online Services</span>
         <span class="tag">2 Player Co-op</span>
+        <span class="tag">Epic Online Services</span>
     </div>
 </section>
 
-<div class="section">
-    <h2 class="section-title">Screenshots</h2>
-    <div class="screenshots">
-        <div class="screenshot-placeholder">Screenshot coming soon</div>
-        <div class="screenshot-placeholder">Screenshot coming soon</div>
-        <div class="screenshot-placeholder">Screenshot coming soon</div>
-    </div>
-</div>
+<div class="content">
 
-<div class="section">
-    <h2 class="section-title">Features</h2>
-    <div class="features-grid">
-        <div class="feature">
-            <div class="feature-icon">🌐</div>
-            <h3>Online Multiplayer</h3>
-            <p>Real-time 2-player co-op via Epic Online Services with lobby browser and LAN support.</p>
-        </div>
-        <div class="feature">
-            <div class="feature-icon">⏱️</div>
-            <h3>Time Pressure</h3>
-            <p>Race against the clock to fulfill customer orders before patience runs out.</p>
-        </div>
-        <div class="feature">
-            <div class="feature-icon">🎮</div>
-            <h3>Customizable Controls</h3>
-            <p>Full keybind remapping with mouse sensitivity and invert options.</p>
-        </div>
-        <div class="feature">
-            <div class="feature-icon">🧃</div>
-            <h3>Singleplayer Mode</h3>
-            <p>Play solo with a dedicated singleplayer mode and separate progression.</p>
+    <!-- TRAILER -->
+    <div class="block">
+        <div class="block-title">Trailer / Gameplay Video</div>
+        <div class="video-placeholder">Trailer coming soon</div>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="block">
+        <div class="block-title">Description</div>
+        <p class="description">After a year long fight with the skeletons ended with a peace treaty, all the mightiest warriors have to settle down on the farm and serve the skeletons. Play co-op or single player and fulfill all the skeletons' orders in all 5 levels to become the ultimate warrior farmer.</p>
+    </div>
+
+    <!-- SCREENSHOTS -->
+    <div class="block">
+        <div class="block-title">Screenshots</div>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn">◀</button>
+            <div class="carousel">
+                <div class="screenshot">Screenshot coming soon</div>
+                <div class="screenshot">Screenshot coming soon</div>
+                <div class="screenshot">Screenshot coming soon</div>
+            </div>
+            <button class="carousel-btn">▶</button>
         </div>
     </div>
-</div>
 
-<div class="section">
-    <h2 class="section-title">Built With</h2>
-    <p style="color: #777; line-height: 1.8;">
-        Developed entirely in <strong style="color:#e05c00">Unreal Engine 5</strong> using a mix of <strong style="color:#e05c00">C++</strong> and Blueprints.
-        Peel the Pressure is powered by <strong style="color:#e05c00">Epic Online Services (EOS)</strong> for cross-network session discovery and P2P connections.
-        The project features custom replication systems, an Enhanced Input keybind system, and a save/load settings pipeline.
-    </p>
+    <!-- FEATURES -->
+    <div class="block">
+        <div class="features-container">
+            <div class="block-title">Features</div>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Online Multiplayer</h3>
+                    <p>Real-time 2-player co-op via Epic Online Services with a lobby browser and LAN support.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Time Pressure</h3>
+                    <p>Race against the clock to fulfill customer orders before time runs out.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Customizable Controls</h3>
+                    <p>Full keybind remapping with mouse sensitivity options.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🧃</div>
+                    <h3>Singleplayer Mode</h3>
+                    <p>Play solo in a dedicated singleplayer mode where you have more time to fulfill orders.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DOWNLOAD -->
+    <div class="block">
+        <span class="download-unavailable">Download — Coming Soon</span>
+    </div>
+
+    <!-- BUILT WITH -->
+    <div class="block">
+        <div class="block-title">Built With</div>
+        <p class="text-block">Developed using <strong>Unreal Engine 5</strong> mainly using C++ with some Blueprints. Online play is powered by <strong>Epic Online Services (EOS)</strong> for cross-network session discovery and P2P connections. This project features real-time replication and functional server searching & joining.</p>
+    </div>
+
+    <!-- MORE INFORMATION -->
+    <div class="block">
+        <div class="block-title">More Information</div>
+        <p class="text-block">Placeholder text — more details about this project coming soon.</p>
+    </div>
+
 </div>
 
 <footer>
