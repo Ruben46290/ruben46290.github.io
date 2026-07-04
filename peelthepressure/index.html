@@ -5,140 +5,441 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peel the Pressure – RubenB Games</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0e0e12; color: #e0e0e0; }
-        nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(14,14,18,0.97); backdrop-filter: blur(10px); padding: 16px 48px; display: flex; justify-content: space-between; align-items: center; z-index: 100; border-bottom: 1px solid #1e1e26; }
-        nav .logo { font-size: 1.1rem; font-weight: 700; color: #fff; text-decoration: none; }
-        nav .nav-links a { color: #aaa; text-decoration: none; margin-left: 28px; font-size: 0.9rem; transition: color 0.2s; }
-        nav .nav-links a:hover { color: #fff; }
-        .hero { padding: 140px 48px 60px; text-align: center; background: radial-gradient(ellipse at center, #1a1a2e 0%, #0e0e12 70%); }
-        .hero h1 { font-size: 2.8rem; font-weight: 800; color: #fff; margin-bottom: 12px; }
-        .hero .short-desc { font-size: 0.95rem; color: #777; max-width: 500px; margin: 0 auto 20px; line-height: 1.6; }
-        .tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-        .tag { padding: 5px 14px; background: #1e1e2a; border-radius: 3px; font-size: 0.78rem; color: #999; }
-        .content { max-width: 900px; margin: 0 auto; padding: 0 48px 80px; }
-        .block { margin-top: 70px; }
-        .block-title { font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 20px; }
-        .video-embed { width: 100%; aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; border: 1px solid #1e1e2a; }
-        .video-embed iframe { width: 100%; height: 100%; border: none; }
-        .description { color: #888; line-height: 1.8; font-size: 0.95rem; }
-        .carousel-wrapper { position: relative; display: flex; align-items: center; gap: 12px; }
-        .carousel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; flex: 1; }
-        .screenshot { aspect-ratio: 16/9; background: #161620; border: 1px solid #1e1e2a; border-radius: 6px; overflow: hidden; cursor: pointer; transition: border-color 0.2s, transform 0.2s; }
-        .screenshot:hover { border-color: #e05c00; transform: scale(1.02); }
-        .screenshot img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .carousel-btn { background: #1e1e2a; border: none; color: #ccc; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1rem; flex-shrink: 0; transition: background 0.2s; }
-        .carousel-btn:hover { background: #2a2a3a; }
-        .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 1000; align-items: center; justify-content: center; }
-        .lightbox.active { display: flex; }
-        .lightbox-inner { position: relative; display: flex; align-items: center; gap: 20px; }
-        .lightbox img { max-width: 80vw; max-height: 85vh; border-radius: 6px; object-fit: contain; user-select: none; }
-        .lightbox-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: #fff; width: 48px; height: 48px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; flex-shrink: 0; transition: background 0.2s; }
-        .lightbox-btn:hover { background: rgba(255,255,255,0.2); }
-        .lightbox-close { position: absolute; top: -48px; right: 0; background: none; border: none; color: #aaa; font-size: 1.8rem; cursor: pointer; transition: color 0.2s; }
-        .lightbox-close:hover { color: #fff; }
-        .lightbox-counter { position: absolute; bottom: -32px; left: 50%; transform: translateX(-50%); color: #666; font-size: 0.85rem; white-space: nowrap; }
-        .features-container { background: #111118; border: 1px solid #1e1e2a; border-radius: 10px; padding: 36px; }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-        .feature { background: #16161e; border: 1px solid #1e1e2a; border-radius: 8px; padding: 20px; }
-        .feature-icon { font-size: 1.8rem; margin-bottom: 10px; }
-        .feature h3 { font-size: 0.9rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
-        .feature p { font-size: 0.78rem; color: #666; line-height: 1.5; }
-        .download-btn { display: block; width: 100%; padding: 20px; background: #00c97a; color: #fff; text-align: center; text-decoration: none; border-radius: 6px; font-size: 1.2rem; font-weight: 700; transition: background 0.2s, transform 0.2s; }
-        .download-btn:hover { background: #00e88a; transform: translateY(-2px); }
-        .text-block { color: #888; line-height: 1.8; font-size: 0.92rem; }
-        .text-block strong { color: #e05c00; }
-        footer { text-align: center; padding: 36px; border-top: 1px solid #1a1a22; color: #444; font-size: 0.8rem; }
-        footer a { color: #555; text-decoration: none; }
-        footer a:hover { color: #888; }
-        @media (max-width: 768px) { nav { padding: 16px 24px; } .hero { padding: 120px 24px 50px; } .content { padding: 0 24px 60px; } .carousel { grid-template-columns: 1fr 1fr; } .lightbox img { max-width: 95vw; } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0e0e12;
+            color: #e0e0e0;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(14,14,18,0.97);
+            backdrop-filter: blur(10px);
+            padding: 16px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            border-bottom: 1px solid #1e1e26;
+        }
+
+            nav .logo {
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: #fff;
+                text-decoration: none;
+            }
+
+            nav .nav-links a {
+                color: #aaa;
+                text-decoration: none;
+                margin-left: 28px;
+                font-size: 0.9rem;
+                transition: color 0.2s;
+            }
+
+                nav .nav-links a:hover {
+                    color: #fff;
+                }
+
+        .hero {
+            padding: 140px 48px 60px;
+            text-align: center;
+            background: radial-gradient(ellipse at center, #1a1a2e 0%, #0e0e12 70%);
+        }
+
+            .hero h1 {
+                font-size: 2.8rem;
+                font-weight: 800;
+                color: #fff;
+                margin-bottom: 12px;
+            }
+
+            .hero .short-desc {
+                font-size: 0.95rem;
+                color: #777;
+                max-width: 500px;
+                margin: 0 auto 20px;
+                line-height: 1.6;
+            }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .tag {
+            padding: 5px 14px;
+            background: #1e1e2a;
+            border-radius: 3px;
+            font-size: 0.78rem;
+            color: #999;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 48px 80px;
+        }
+
+        .block {
+            margin-top: 70px;
+        }
+
+        .block-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .video-embed {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #1e1e2a;
+        }
+
+            .video-embed iframe {
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+
+        .description {
+            color: #888;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .carousel {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            flex: 1;
+        }
+
+        .screenshot {
+            aspect-ratio: 16/9;
+            background: #161620;
+            border: 1px solid #1e1e2a;
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+            .screenshot:hover {
+                border-color: #e05c00;
+                transform: scale(1.02);
+            }
+
+            .screenshot img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+        .carousel-btn {
+            background: #1e1e2a;
+            border: none;
+            color: #ccc;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            flex-shrink: 0;
+            transition: background 0.2s;
+        }
+
+            .carousel-btn:hover {
+                background: #2a2a3a;
+            }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .lightbox.active {
+                display: flex;
+            }
+
+        .lightbox-inner {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .lightbox img {
+            max-width: 80vw;
+            max-height: 85vh;
+            border-radius: 6px;
+            object-fit: contain;
+            user-select: none;
+        }
+
+        .lightbox-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #fff;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: background 0.2s;
+        }
+
+            .lightbox-btn:hover {
+                background: rgba(255,255,255,0.2);
+            }
+
+        .lightbox-close {
+            position: absolute;
+            top: -48px;
+            right: 0;
+            background: none;
+            border: none;
+            color: #aaa;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+            .lightbox-close:hover {
+                color: #fff;
+            }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: -32px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #666;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .features-container {
+            background: #111118;
+            border: 1px solid #1e1e2a;
+            border-radius: 10px;
+            padding: 36px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .feature {
+            background: #16161e;
+            border: 1px solid #1e1e2a;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .feature h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .feature p {
+            font-size: 0.78rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .download-btn {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background: #00c97a;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+            .download-btn:hover {
+                background: #00e88a;
+                transform: translateY(-2px);
+            }
+
+        .text-block {
+            color: #888;
+            line-height: 1.8;
+            font-size: 0.92rem;
+        }
+
+            .text-block strong {
+                color: #e05c00;
+            }
+
+        footer {
+            text-align: center;
+            padding: 36px;
+            border-top: 1px solid #1a1a22;
+            color: #444;
+            font-size: 0.8rem;
+        }
+
+            footer a {
+                color: #555;
+                text-decoration: none;
+            }
+
+                footer a:hover {
+                    color: #888;
+                }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 24px;
+            }
+
+            .hero {
+                padding: 120px 24px 50px;
+            }
+
+            .content {
+                padding: 0 24px 60px;
+            }
+
+            .carousel {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .lightbox img {
+                max-width: 95vw;
+            }
+        }
     </style>
 </head>
 <body>
-<nav>
-    <a href="/" class="logo">RubenB Games</a>
-    <div class="nav-links"><a href="/#games">Games</a><a href="/#about">About</a><a href="/#contact">Contact</a></div>
-</nav>
-<section class="hero">
-    <h1>Peel the Pressure</h1>
-    <p class="short-desc">A fast-paced co-op multiplayer game built in Unreal Engine 5 featuring real-time online play via Epic Online Services.</p>
-    <div class="tags">
-        <span class="tag">Unreal Engine 5</span><span class="tag">C++</span><span class="tag">Blueprints</span><span class="tag">2 Player Co-op</span><span class="tag">Epic Online Services</span>
-    </div>
-</section>
-<div class="content">
-    <div class="block">
-        <div class="block-title">Trailer / Gameplay Video</div>
-        <div class="video-embed"><iframe src="https://www.youtube.com/embed/q4qY8zxiKfY" allowfullscreen></iframe></div>
-    </div>
-    <div class="block">
-        <div class="block-title">Description</div>
-        <p class="description">After a year long fight with the skeletons ended with a peace treaty, all the mightiest warriors have to settle down on the farm and serve the skeletons. Play co-op or single player and fulfill all the skeletons' orders in all 5 levels to become the ultimate warrior farmer.</p>
-    </div>
-    <div class="block">
-        <div class="block-title">Screenshots</div>
-        <div class="carousel-wrapper">
-            <button class="carousel-btn" id="prevBtn">&#9664;</button>
-            <div class="carousel" id="carousel"></div>
-            <button class="carousel-btn" id="nextBtn">&#9654;</button>
+    <nav>
+        <a href="/" class="logo">RubenB Games</a>
+        <div class="nav-links"><a href="/#games">Games</a><a href="/#about">About</a><a href="/#contact">Contact</a></div>
+    </nav>
+    <section class="hero">
+        <h1>Peel the Pressure</h1>
+        <p class="short-desc">A fast-paced co-op multiplayer game built in Unreal Engine 5 featuring real-time online play via Epic Online Services.</p>
+        <div class="tags">
+            <span class="tag">Unreal Engine 5</span><span class="tag">C++</span><span class="tag">Blueprints</span><span class="tag">2 Player Co-op</span><span class="tag">Epic Online Services</span>
         </div>
-    </div>
-    <div class="block">
-        <div class="features-container">
-            <div class="block-title">Features</div>
-            <div class="features-grid">
-                <div class="feature"><div class="feature-icon">🌐</div><h3>Online Multiplayer</h3><p>Real-time 2-player co-op via Epic Online Services with a lobby browser.</p></div>
-                <div class="feature"><div class="feature-icon">⏱️</div><h3>Time Pressure</h3><p>Race against the clock to fulfill customer orders before time runs out.</p></div>
-                <div class="feature"><div class="feature-icon">🎮</div><h3>Customizable Controls</h3><p>Full keybind remapping with mouse sensitivity options.</p></div>
-                <div class="feature"><div class="feature-icon">🧃</div><h3>Singleplayer Mode</h3><p>Play solo in a dedicated singleplayer mode where you have more time to fulfill orders.</p></div>
+    </section>
+    <div class="content">
+        <div class="block">
+            <div class="block-title">Trailer / Gameplay Video</div>
+            <div class="video-embed"><iframe src="https://www.youtube.com/embed/q4qY8zxiKfY" allowfullscreen></iframe></div>
+        </div>
+        <div class="block">
+            <div class="block-title">Description</div>
+            <p class="description">After a year long fight with the skeletons ended with a peace treaty, all the mightiest warriors have to settle down on the farm and serve the skeletons. Play co-op or single player and fulfill all the skeletons' orders in all 5 levels to become the ultimate warrior farmer.</p>
+        </div>
+        <div class="block">
+            <div class="block-title">Screenshots</div>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn" id="prevBtn">&#9664;</button>
+                <div class="carousel" id="carousel"></div>
+                <button class="carousel-btn" id="nextBtn">&#9654;</button>
             </div>
         </div>
+        <div class="block">
+            <div class="features-container">
+                <div class="block-title">Features</div>
+                <div class="features-grid">
+                    <div class="feature"><div class="feature-icon">🌐</div><h3>Online Multiplayer</h3><p>Real-time 2-player co-op via Epic Online Services with a lobby browser.</p></div>
+                    <div class="feature"><div class="feature-icon">⏱️</div><h3>Time Pressure</h3><p>Race against the clock to fulfill customer orders before time runs out.</p></div>
+                    <div class="feature"><div class="feature-icon">🎮</div><h3>Customizable Controls</h3><p>Full keybind remapping with mouse sensitivity options.</p></div>
+                    <div class="feature"><div class="feature-icon">🧃</div><h3>Singleplayer Mode</h3><p>Play solo in a dedicated singleplayer mode where you have more time to fulfill orders.</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="block">
+            <a href="https://rubenb2004.itch.io/peelthepressure" target="_blank" class="download-btn">Download on Itch.io</a>
+        </div>
+        <div class="block">
+            <div class="block-title">Built With</div>
+            <p class="text-block">Developed using <strong>Unreal Engine 5</strong> mainly using C++ with some Blueprints. Online play is powered by <strong>Epic Online Services (EOS)</strong> for cross-network session discovery and P2P connections. This project features real-time replication and functional server searching & joining.</p>
+        </div>
+        <div class="block">
+            <div class="block-title">More Information</div>
+            <p class="text-block">Placeholder text — more details about this project coming soon.</p>
+        </div>
     </div>
-    <div class="block">
-        <a href="https://rubenb2004.itch.io/peelthepressure" target="_blank" class="download-btn">Download on Itch.io</a>
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-inner">
+            <button class="lightbox-close" id="lightboxClose">&#10005;</button>
+            <button class="lightbox-btn" id="lightboxPrev">&#9664;</button>
+            <img id="lightboxImg" src="" alt="Screenshot">
+            <button class="lightbox-btn" id="lightboxNext">&#9654;</button>
+            <div class="lightbox-counter" id="lightboxCounter"></div>
+        </div>
     </div>
-    <div class="block">
-        <div class="block-title">Built With</div>
-        <p class="text-block">Developed using <strong>Unreal Engine 5</strong> mainly using C++ with some Blueprints. Online play is powered by <strong>Epic Online Services (EOS)</strong> for cross-network session discovery and P2P connections. This project features real-time replication and functional server searching & joining.</p>
-    </div>
-    <div class="block">
-        <div class="block-title">More Information</div>
-        <p class="text-block">Placeholder text — more details about this project coming soon.</p>
-    </div>
-</div>
-<div class="lightbox" id="lightbox">
-    <div class="lightbox-inner">
-        <button class="lightbox-close" id="lightboxClose">&#10005;</button>
-        <button class="lightbox-btn" id="lightboxPrev">&#9664;</button>
-        <img id="lightboxImg" src="" alt="Screenshot">
-        <button class="lightbox-btn" id="lightboxNext">&#9654;</button>
-        <div class="lightbox-counter" id="lightboxCounter"></div>
-    </div>
-</div>
-<footer><p>&copy; 2026 RubenB Games &nbsp;&middot;&nbsp; <a href="/">Home</a> &nbsp;&middot;&nbsp; <a href="/privacy">Privacy Policy</a></p></footer>
-<script>
-    const screenshots = [
-        '/peelthepressure/screenshots/screenshot1.jpg',
-        '/peelthepressure/screenshots/screenshot2.jpg',
-        '/peelthepressure/screenshots/screenshot3.jpg',
-        '/peelthepressure/screenshots/screenshot4.jpg',
-        '/peelthepressure/screenshots/screenshot5.jpg',
-        '/peelthepressure/screenshots/screenshot6.jpg'
-    ];
-    const perPage = 3; let carouselPage = 0; let lightboxIndex = 0;
-    const carousel = document.getElementById('carousel'), lightbox = document.getElementById('lightbox'), lightboxImg = document.getElementById('lightboxImg'), lightboxCounter = document.getElementById('lightboxCounter'), prevBtn = document.getElementById('prevBtn'), nextBtn = document.getElementById('nextBtn');
-    function renderCarousel() { carousel.innerHTML = ''; const start = carouselPage * perPage; screenshots.slice(start, start + perPage).forEach((src, i) => { const div = document.createElement('div'); div.className = 'screenshot'; const img = document.createElement('img'); img.src = src; img.alt = 'Screenshot ' + (start+i+1); img.loading = 'lazy'; div.appendChild(img); div.addEventListener('click', () => openLightbox(start+i)); carousel.appendChild(div); }); prevBtn.style.opacity = carouselPage === 0 ? '0.3' : '1'; nextBtn.style.opacity = (carouselPage+1)*perPage >= screenshots.length ? '0.3' : '1'; }
-    function openLightbox(i) { lightboxIndex = i; lightboxImg.src = screenshots[i]; lightboxCounter.textContent = (i+1)+' / '+screenshots.length; lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; }
-    function closeLightbox() { lightbox.classList.remove('active'); document.body.style.overflow = ''; }
-    function lightboxNav(dir) { lightboxIndex = (lightboxIndex+dir+screenshots.length)%screenshots.length; lightboxImg.src = screenshots[lightboxIndex]; lightboxCounter.textContent = (lightboxIndex+1)+' / '+screenshots.length; }
-    prevBtn.addEventListener('click', () => { if(carouselPage>0){carouselPage--;renderCarousel();} });
-    nextBtn.addEventListener('click', () => { if((carouselPage+1)*perPage<screenshots.length){carouselPage++;renderCarousel();} });
-    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
-    document.getElementById('lightboxPrev').addEventListener('click', () => lightboxNav(-1));
-    document.getElementById('lightboxNext').addEventListener('click', () => lightboxNav(1));
-    lightbox.addEventListener('click', (e) => { if(e.target===lightbox)closeLightbox(); });
-    document.addEventListener('keydown', (e) => { if(!lightbox.classList.contains('active'))return; if(e.key==='ArrowLeft')lightboxNav(-1); if(e.key==='ArrowRight')lightboxNav(1); if(e.key==='Escape')closeLightbox(); });
-    renderCarousel();
-</script>
+    <footer><p>&copy; 2026 RubenB Games &nbsp;&middot;&nbsp; <a href="/">Home</a> &nbsp;&middot;&nbsp; <a href="/privacy">Privacy Policy</a></p></footer>
+    <script>
+        const screenshots = [
+            '/blighthearth/screenshots/screenshot1.jpg',
+            '/blighthearth/screenshots/screenshot2.jpg',
+            '/blighthearth/screenshots/screenshot3.jpg',
+            '/blighthearth/screenshots/screenshot4.jpg',
+            '/blighthearth/screenshots/screenshot5.jpg'
+        ];
+        const perPage = 3; let carouselPage = 0; let lightboxIndex = 0;
+        const carousel = document.getElementById('carousel'), lightbox = document.getElementById('lightbox'), lightboxImg = document.getElementById('lightboxImg'), lightboxCounter = document.getElementById('lightboxCounter'), prevBtn = document.getElementById('prevBtn'), nextBtn = document.getElementById('nextBtn');
+        function renderCarousel() { carousel.innerHTML = ''; const start = carouselPage * perPage; screenshots.slice(start, start + perPage).forEach((src, i) => { const div = document.createElement('div'); div.className = 'screenshot'; const img = document.createElement('img'); img.src = src; img.alt = 'Screenshot ' + (start + i + 1); img.loading = 'lazy'; div.appendChild(img); div.addEventListener('click', () => openLightbox(start + i)); carousel.appendChild(div); }); prevBtn.style.opacity = carouselPage === 0 ? '0.3' : '1'; nextBtn.style.opacity = (carouselPage + 1) * perPage >= screenshots.length ? '0.3' : '1'; }
+        function openLightbox(i) { lightboxIndex = i; lightboxImg.src = screenshots[i]; lightboxCounter.textContent = (i + 1) + ' / ' + screenshots.length; lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeLightbox() { lightbox.classList.remove('active'); document.body.style.overflow = ''; }
+        function lightboxNav(dir) { lightboxIndex = (lightboxIndex + dir + screenshots.length) % screenshots.length; lightboxImg.src = screenshots[lightboxIndex]; lightboxCounter.textContent = (lightboxIndex + 1) + ' / ' + screenshots.length; }
+        prevBtn.addEventListener('click', () => { if (carouselPage > 0) { carouselPage--; renderCarousel(); } });
+        nextBtn.addEventListener('click', () => { if ((carouselPage + 1) * perPage < screenshots.length) { carouselPage++; renderCarousel(); } });
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        document.getElementById('lightboxPrev').addEventListener('click', () => lightboxNav(-1));
+        document.getElementById('lightboxNext').addEventListener('click', () => lightboxNav(1));
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+        document.addEventListener('keydown', (e) => { if (!lightbox.classList.contains('active')) return; if (e.key === 'ArrowLeft') lightboxNav(-1); if (e.key === 'ArrowRight') lightboxNav(1); if (e.key === 'Escape') closeLightbox(); });
+        renderCarousel();
+    </script>
 </body>
 </html>
