@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RubenB Games</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,10 +17,11 @@
             color: #e0e0e0;
         }
 
-        /* NAV */
         nav {
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             background: rgba(14,14,18,0.97);
             backdrop-filter: blur(10px);
             padding: 16px 48px;
@@ -26,22 +31,26 @@
             z-index: 100;
             border-bottom: 1px solid #1e1e26;
         }
-        nav .logo {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 0.5px;
-        }
-        nav .nav-links a {
-            color: #aaa;
-            text-decoration: none;
-            margin-left: 28px;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-        nav .nav-links a:hover { color: #fff; }
 
-        /* HERO */
+            nav .logo {
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: #fff;
+                letter-spacing: 0.5px;
+            }
+
+            nav .nav-links a {
+                color: #aaa;
+                text-decoration: none;
+                margin-left: 28px;
+                font-size: 0.9rem;
+                transition: color 0.2s;
+            }
+
+                nav .nav-links a:hover {
+                    color: #fff;
+                }
+
         .hero {
             min-height: 100vh;
             display: flex;
@@ -52,19 +61,22 @@
             padding: 40px 24px;
             background: radial-gradient(ellipse at center, #1a1a2e 0%, #0e0e12 65%);
         }
-        .hero h1 {
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 12px;
-        }
-        .hero p {
-            font-size: 1rem;
-            color: #888;
-            max-width: 380px;
-            line-height: 1.7;
-            margin-bottom: 32px;
-        }
+
+            .hero h1 {
+                font-size: 2.4rem;
+                font-weight: 700;
+                color: #fff;
+                margin-bottom: 12px;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                color: #888;
+                max-width: 380px;
+                line-height: 1.7;
+                margin-bottom: 32px;
+            }
+
         .hero-btn {
             display: inline-block;
             padding: 12px 28px;
@@ -76,9 +88,12 @@
             font-size: 0.95rem;
             transition: background 0.2s, transform 0.2s;
         }
-        .hero-btn:hover { background: #ff6d00; transform: translateY(-2px); }
 
-        /* SECTIONS */
+            .hero-btn:hover {
+                background: #ff6d00;
+                transform: translateY(-2px);
+            }
+
         .section {
             padding: 80px 60px;
             max-width: 1100px;
@@ -95,21 +110,18 @@
             padding-bottom: 6px;
         }
 
-        /* FEATURED - 2 col */
         .featured-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 24px;
         }
 
-        /* GAMES - 3 col */
         .games-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
-        /* GAME CARD */
         .game-card {
             background: #16161e;
             border: 1px solid #1e1e2a;
@@ -120,10 +132,12 @@
             display: block;
             transition: transform 0.2s, border-color 0.2s;
         }
-        .game-card:hover {
-            transform: translateY(-4px);
-            border-color: #e05c00;
-        }
+
+            .game-card:hover {
+                transform: translateY(-4px);
+                border-color: #e05c00;
+            }
+
         .game-card-img {
             width: 100%;
             aspect-ratio: 16/9;
@@ -133,31 +147,37 @@
             justify-content: center;
             font-size: 2.5rem;
         }
+
         .featured .game-card-img {
             aspect-ratio: 4/3;
             font-size: 3rem;
         }
+
         .game-card-body {
             padding: 16px;
             background: #111118;
         }
-        .game-card-body h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 6px;
-        }
-        .game-card-body p {
-            font-size: 0.8rem;
-            color: #777;
-            line-height: 1.5;
-            margin-bottom: 12px;
-        }
+
+            .game-card-body h3 {
+                font-size: 1rem;
+                font-weight: 700;
+                color: #fff;
+                margin-bottom: 6px;
+            }
+
+            .game-card-body p {
+                font-size: 0.8rem;
+                color: #777;
+                line-height: 1.5;
+                margin-bottom: 12px;
+            }
+
         .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
         }
+
         .tag {
             display: inline-block;
             padding: 3px 10px;
@@ -167,7 +187,6 @@
             color: #999;
         }
 
-        /* ABOUT */
         .about-section {
             background: #111118;
             border: 1px solid #1e1e2a;
@@ -178,28 +197,35 @@
             gap: 60px;
             align-items: start;
         }
-        .about-section h2 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 16px;
-            border-bottom: 2px solid #e05c00;
-            display: inline-block;
-            padding-bottom: 6px;
-        }
-        .about-section p {
-            color: #888;
-            line-height: 1.8;
-            font-size: 0.9rem;
-            margin-bottom: 12px;
-        }
-        .about-section p strong { color: #e05c00; }
+
+            .about-section h2 {
+                font-size: 1.6rem;
+                font-weight: 700;
+                color: #fff;
+                margin-bottom: 16px;
+                border-bottom: 2px solid #e05c00;
+                display: inline-block;
+                padding-bottom: 6px;
+            }
+
+            .about-section p {
+                color: #888;
+                line-height: 1.8;
+                font-size: 0.9rem;
+                margin-bottom: 12px;
+            }
+
+                .about-section p strong {
+                    color: #e05c00;
+                }
+
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin-top: 16px;
         }
+
         .skill-tag {
             padding: 6px 14px;
             border: 1px solid #2a2a36;
@@ -208,7 +234,6 @@
             color: #ccc;
         }
 
-        /* CONTACT */
         .contact-section h2 {
             font-size: 1.6rem;
             font-weight: 700;
@@ -218,11 +243,13 @@
             display: inline-block;
             padding-bottom: 6px;
         }
+
         .contact-links {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
         }
+
         .contact-link {
             display: inline-flex;
             align-items: center;
@@ -236,9 +263,12 @@
             font-size: 0.85rem;
             transition: border-color 0.2s, color 0.2s;
         }
-        .contact-link:hover { border-color: #e05c00; color: #e05c00; }
 
-        /* FOOTER */
+            .contact-link:hover {
+                border-color: #e05c00;
+                color: #e05c00;
+            }
+
         footer {
             text-align: center;
             padding: 36px;
@@ -246,192 +276,204 @@
             color: #444;
             font-size: 0.8rem;
         }
-        footer a { color: #555; text-decoration: none; }
-        footer a:hover { color: #888; }
+
+            footer a {
+                color: #555;
+                text-decoration: none;
+            }
+
+                footer a:hover {
+                    color: #888;
+                }
 
         @media (max-width: 900px) {
-            nav { padding: 16px 24px; }
-            .section { padding: 60px 24px; }
-            .featured-grid { grid-template-columns: 1fr; }
-            .games-grid { grid-template-columns: 1fr 1fr; }
-            .about-section { grid-template-columns: 1fr; gap: 30px; }
+            nav {
+                padding: 16px 24px;
+            }
+
+            .section {
+                padding: 60px 24px;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
         }
+
         @media (max-width: 600px) {
-            .games-grid { grid-template-columns: 1fr; }
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="logo">RubenB Games</div>
-    <div class="nav-links">
-        <a href="#games">Games</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-    <h1>RubenB Games</h1>
-    <p>Independent game developer building games with Unreal Engine.</p>
-    <a href="#games" class="hero-btn">View Games</a>
-</section>
-
-<!-- FEATURED -->
-<div class="section featured" id="games">
-    <span class="section-label">Featured</span>
-    <div class="featured-grid">
-        <a href="/peelthepressure" class="game-card">
-            <div class="game-card-img" style="padding:0;"><img src="/peelthepressure/screenshots/cover.jpg" alt="Peel the Pressure" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="game-card-body">
-                <h3>Peel the Pressure</h3>
-                <p>A fast-paced co-op multiplayer game built in Unreal Engine 5 featuring real-time online play via Epic Online Services.</p>
-                <div class="tags">
-                    <span class="tag">Unreal Engine 5</span>
-                    <span class="tag">Multiplayer</span>
-                    <span class="tag">C++</span>
-                </div>
-            </div>
-        </a>
-        <a href="/blighthearth" class="game-card">
-            <div class="game-card-img" style="padding:0;"><img src="/blighthearth/cover.jpg" alt="Blight Hearth" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="game-card-body">
-                <h3>Blight Hearth</h3>
-                <p>Defend the castle from a massive attack of goblins.</p>
-                <div class="tags">
-                    <span class="tag">Unreal Engine</span>
-                    <span class="tag">Blueprints</span>
-                    <span class="tag">AIE Group Project</span>
-                </div>
-            </div>
-        </a>
-    </div>
-</div>
-
-<!-- ALL GAMES -->
-<div class="section">
-    <span class="section-label">Games</span>
-    <div class="game-card-img" style="padding:0; aspect-ratio:16/9;"><img src="/peelthepressure/cover.jpg" alt="Peel the Pressure" style="width:100%;height:100%;object-fit:cover;"></div>
-        <a href="/peelthepressure" class="game-card">
-            <div class="game-card-img">🎮</div>
-            <div class="game-card-body">
-                <h3>Peel the Pressure</h3>
-                <p>A fast-paced co-op multiplayer game built in Unreal Engine 5.</p>
-                <div class="tags">
-                    <span class="tag">Unreal Engine 5</span>
-                    <span class="tag">Multiplayer</span>
-                    <span class="tag">C++</span>
-                </div>
-            </div>
-        </a>
-        <a href="/blighthearth" class="game-card">
-            <div class="game-card-img" style="padding:0;"><img src="/blighthearth/cover.jpg" alt="Blight Hearth" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="game-card-body">
-                <h3>Blight Hearth</h3>
-                <p>Defend the castle from a massive attack of goblins.</p>
-                <div class="tags">
-                    <span class="tag">Unreal Engine</span>
-                    <span class="tag">Blueprints</span>
-                    <span class="tag">AIE Group Project</span>
-                </div>
-            </div>
-        </a>
-        <a href="/fruitblocks" class="game-card">
-            <div class="game-card-img" style="padding:0;"><img src="/fruitblocks/cover.jpg" alt="Fruit Blocks" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="game-card-body">
-                <h3>Fruit Blocks</h3>
-                <p>Place blocks in a grid to collect fruit and fill orders.</p>
-                <div class="tags">
-                    <span class="tag">Unreal Engine</span>
-                    <span class="tag">Mobile</span>
-                    <span class="tag">Puzzle</span>
-                </div>
-            </div>
-        </a>
-        <a href="/scrappysescape" class="game-card">
-            <div class="game-card-img" style="padding:0;"><img src="/scrappysescape/cover.jpg" alt="Scrappy's Escape" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="game-card-body">
-                <h3>Scrappy's Escape</h3>
-                <p>Play as a robot and escape from the evil robot factory.</p>
-                <div class="tags">
-                    <span class="tag">Unreal Engine</span><span class="tag">2D</span><span class="tag">Platformer</span>
-                </div>
-            </div>
-        </a>
-        <a href="/treasuretiles" class="game-card">
-            <div class="game-card-img" style="padding:0;"><img src="/treasuretiles/cover.jpg" alt="Treasure Tiles" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="game-card-body">
-                <h3>Treasure Tiles</h3>
-                <p>Open chests to upgrade your chests to open more chests.</p>
-                <div class="tags">
-                    <span class="tag">Unreal Engine</span><span class="tag">2D</span><span class="tag">Clicker</span>
-                </div>
-            </div>
-        </a>
-        <a href="/silentremnants" class="game-card">
-            <div class="game-card-img" style="padding:0;"><img src="/silentremnants/cover.jpg" alt="Silent Remnants" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="game-card-body">
-                <h3>Silent Remnants</h3>
-                <p>Short rhythm game — play through 7 songs and swipe along to the beat!</p>
-                <div class="tags">
-                    <span class="tag">Godot</span><span class="tag">Rhythm</span><span class="tag">Mobile</span>
-                </div>
-            </div>
-        </a>
-        <a href="/shelvesandshadows" class="game-card">
-            <div class="game-card-img" style="padding:0;"><img src="/shelvesandshadows/cover.jpg" alt="Shelves and Shadows" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="game-card-body">
-                <h3>Shelves and Shadows</h3>
-                <p>Escape the mall, fight off skeletons and run from the monster.</p>
-                <div class="tags">
-                    <span class="tag">Unreal Engine</span><span class="tag">Blueprints</span><span class="tag">AIE Group Project</span>
-                </div>
-            </div>
-        </a>
-        <!-- Future games go here -->
-    </div>
-</div>
-
-<!-- ABOUT -->
-<div class="section" id="about">
-    <div class="about-section">
-        <div>
-            <h2>About</h2>
-            <p>I'm <strong>Ruben Botha</strong>, an independent game developer based in Australia passionate about building interactive experiences.</p>
-            <p>I work primarily with <strong>Unreal Engine 5</strong> and <strong>C++</strong>, focusing on gameplay systems, networking, and online multiplayer infrastructure.</p>
-            <div class="skill-tags">
-                <span class="skill-tag">Unreal Engine 5</span>
-                <span class="skill-tag">C++</span>
-                <span class="skill-tag">Blueprints</span>
-                <span class="skill-tag">Epic Online Services</span>
-                <span class="skill-tag">Multiplayer Networking</span>
-                <span class="skill-tag">Game Design</span>
-            </div>
+    <nav>
+        <div class="logo">RubenB Games</div>
+        <div class="nav-links">
+            <a href="#games">Games</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
         </div>
-        <div>
-            <!-- Profile photo placeholder -->
+    </nav>
+
+    <section class="hero">
+        <h1>RubenB Games</h1>
+        <p>Independent game developer building games with Unreal Engine.</p>
+        <a href="#games" class="hero-btn">View Games</a>
+    </section>
+
+    <!-- FEATURED -->
+    <div class="section featured" id="games">
+        <span class="section-label">Featured</span>
+        <div class="featured-grid">
+            <a href="/peelthepressure" class="game-card">
+                <div class="game-card-img" style="padding:0;"><img src="/peelthepressure/screenshots/cover.jpg" alt="Peel the Pressure" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="game-card-body">
+                    <h3>Peel the Pressure</h3>
+                    <p>A fast-paced co-op multiplayer game built in Unreal Engine 5 featuring real-time online play via Epic Online Services.</p>
+                    <div class="tags">
+                        <span class="tag">Unreal Engine 5</span><span class="tag">Multiplayer</span><span class="tag">C++</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/blighthearth" class="game-card">
+                <div class="game-card-img" style="padding:0;"><img src="/blighthearth/cover.jpg" alt="Blight Hearth" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="game-card-body">
+                    <h3>Blight Hearth</h3>
+                    <p>Defend the castle from a massive attack of goblins.</p>
+                    <div class="tags">
+                        <span class="tag">Unreal Engine</span><span class="tag">Blueprints</span><span class="tag">AIE Group Project</span>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
-</div>
 
-<!-- CONTACT -->
-<div class="section" id="contact">
-    <div class="contact-section">
-        <h2>Contact</h2>
-        <div class="contact-links">
-            <a href="mailto:rubenbotha04@gmail.com" class="contact-link">📧 rubenbotha04@gmail.com</a>
-            <a href="https://github.com/Ruben46290" target="_blank" class="contact-link">🐙 GitHub</a>
-            <a href="https://rubenb2004.itch.io/" target="_blank" class="contact-link">🎮 Itch.io</a>
-            <a href="https://www.linkedin.com/in/ruben-botha2004/" target="_blank" class="contact-link">💼 LinkedIn</a>
+    <!-- ALL GAMES -->
+    <div class="section">
+        <span class="section-label">Games</span>
+        <div class="games-grid">
+            <a href="/peelthepressure" class="game-card">
+                <div class="game-card-img" style="padding:0;"><img src="/peelthepressure/screenshots/cover.jpg" alt="Peel the Pressure" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="game-card-body">
+                    <h3>Peel the Pressure</h3>
+                    <p>A fast-paced co-op multiplayer game built in Unreal Engine 5.</p>
+                    <div class="tags">
+                        <span class="tag">Unreal Engine 5</span><span class="tag">Multiplayer</span><span class="tag">C++</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/blighthearth" class="game-card">
+                <div class="game-card-img" style="padding:0;"><img src="/blighthearth/cover.jpg" alt="Blight Hearth" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="game-card-body">
+                    <h3>Blight Hearth</h3>
+                    <p>Defend the castle from a massive attack of goblins.</p>
+                    <div class="tags">
+                        <span class="tag">Unreal Engine</span><span class="tag">Blueprints</span><span class="tag">AIE Group Project</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/fruitblocks" class="game-card">
+                <div class="game-card-img" style="padding:0;"><img src="/fruitblocks/cover.jpg" alt="Fruit Blocks" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="game-card-body">
+                    <h3>Fruit Blocks</h3>
+                    <p>Place blocks in a grid to collect fruit and fill orders.</p>
+                    <div class="tags">
+                        <span class="tag">Unreal Engine</span><span class="tag">Mobile</span><span class="tag">Puzzle</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/scrappysescape" class="game-card">
+                <div class="game-card-img" style="padding:0;"><img src="/scrappysescape/cover.jpg" alt="Scrappy's Escape" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="game-card-body">
+                    <h3>Scrappy's Escape</h3>
+                    <p>Play as a robot and escape from the evil robot factory.</p>
+                    <div class="tags">
+                        <span class="tag">Unreal Engine</span><span class="tag">2D</span><span class="tag">Platformer</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/treasuretiles" class="game-card">
+                <div class="game-card-img" style="padding:0;"><img src="/treasuretiles/cover.jpg" alt="Treasure Tiles" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="game-card-body">
+                    <h3>Treasure Tiles</h3>
+                    <p>Open chests to upgrade your chests to open more chests.</p>
+                    <div class="tags">
+                        <span class="tag">Unreal Engine</span><span class="tag">2D</span><span class="tag">Clicker</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/silentremnants" class="game-card">
+                <div class="game-card-img" style="padding:0;"><img src="/silentremnants/cover.jpg" alt="Silent Remnants" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="game-card-body">
+                    <h3>Silent Remnants</h3>
+                    <p>Short rhythm game — play through 7 songs and swipe along to the beat!</p>
+                    <div class="tags">
+                        <span class="tag">Godot</span><span class="tag">Rhythm</span><span class="tag">Mobile</span>
+                    </div>
+                </div>
+            </a>
+            <a href="/shelvesandshadows" class="game-card">
+                <div class="game-card-img" style="padding:0;"><img src="/shelvesandshadows/cover.jpg" alt="Shelves and Shadows" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="game-card-body">
+                    <h3>Shelves and Shadows</h3>
+                    <p>Escape the mall, fight off skeletons and run from the monster.</p>
+                    <div class="tags">
+                        <span class="tag">Unreal Engine</span><span class="tag">Blueprints</span><span class="tag">AIE Group Project</span>
+                    </div>
+                </div>
+            </a>
+            <!-- Future games go here -->
         </div>
     </div>
-</div>
 
-<footer>
-    <p>© 2026 RubenB Games &nbsp;·&nbsp; <a href="/privacy">Privacy Policy</a></p>
-</footer>
+    <!-- ABOUT -->
+    <div class="section" id="about">
+        <div class="about-section">
+            <div>
+                <h2>About</h2>
+                <p>I'm <strong>Ruben Botha</strong>, an independent game developer based in Australia passionate about building interactive experiences.</p>
+                <p>I work primarily with <strong>Unreal Engine 5</strong> and <strong>C++</strong>, focusing on gameplay systems, networking, and online multiplayer infrastructure.</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Unreal Engine 5</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">Blueprints</span>
+                    <span class="skill-tag">Epic Online Services</span>
+                    <span class="skill-tag">Multiplayer Networking</span>
+                    <span class="skill-tag">Game Design</span>
+                </div>
+            </div>
+            <div><!-- Profile photo placeholder --></div>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="section" id="contact">
+        <div class="contact-section">
+            <h2>Contact</h2>
+            <div class="contact-links">
+                <a href="mailto:rubenbotha04@gmail.com" class="contact-link">📧 rubenbotha04@gmail.com</a>
+                <a href="https://github.com/Ruben46290" target="_blank" class="contact-link">🐙 GitHub</a>
+                <a href="https://rubenb2004.itch.io/" target="_blank" class="contact-link">🎮 Itch.io</a>
+                <a href="https://www.linkedin.com/in/ruben-botha2004/" target="_blank" class="contact-link">💼 LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 RubenB Games &nbsp;&middot;&nbsp; <a href="/privacy">Privacy Policy</a></p>
+    </footer>
 
 </body>
 </html>
